@@ -17,7 +17,11 @@ from hr.departments d,hr.employees e
 where d.department_id = e.department_id
 and d.department_name in ('IT','Sales')
 GROUP BY d.department_name;
+运行结果：
 <img src="https://github.com/2352125906yjb/oracle/blob/main/test1/%E5%9B%BE%E7%89%87%E4%B8%80.png">
+
+解释计划：
+<img src="">
 
 查询2
 set autotrace on
