@@ -17,6 +17,7 @@ from hr.departments d,hr.employees e
 where d.department_id = e.department_id
 and d.department_name in ('IT','Sales')
 GROUP BY d.department_name;
+
 运行结果：
 <img src="https://github.com/2352125906yjb/oracle/blob/main/test1/%E5%9B%BE%E7%89%87%E4%B8%80.png">
 
@@ -33,8 +34,12 @@ WHERE d.department_id = e.department_id
 GROUP BY d.department_name
 HAVING d.department_name in ('IT','Sales');
 执行上面两个比较复杂的返回相同查询结果数据集的SQL语句，通过分析SQL语句各自的执行计划，判断哪个SQL语句是最优的。最后将你认为最优的SQL语句通过sqldeveloper的优化指导工具进行优化指导，看看该工具有没有给出优化建议
+
 运行结果：
 <img src="https://github.com/2352125906yjb/oracle/blob/main/test1/%E5%9B%BE%E7%89%87%E4%BA%8C.png">
 
 解释计划：
 <img src="https://github.com/2352125906yjb/oracle/blob/main/test1/%E5%9B%BE%E7%89%874.png">
+
+实验总结：
+对两个代码语句进行了运行和深度比较，发现代码1比代码2的运行速度更快，大概是更加灵活的原因吧
