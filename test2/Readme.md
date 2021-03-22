@@ -28,7 +28,7 @@ SQL> exit
 
 运行结果：
 
-
+<img src="https://github.com/2352125906yjb/oracle/blob/main/test2/1.png" />
 
 第2步：新用户new_user连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 $ sqlplus new_user/123@pdborcl
