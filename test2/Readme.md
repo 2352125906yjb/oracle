@@ -50,6 +50,11 @@ wang
 SQL> GRANT SELECT ON myview TO hr;
 Grant succeeded.
 SQL>exit
+
+运行结果：
+
+<img src="https://github.com/2352125906yjb/oracle/blob/main/test2/2.png">
+
 第3步：用户hr连接到pdborcl，查询new_user授予它的视图myview
 $ sqlplus hr/123@pdborcl
 SQL> SELECT * FROM new_user.myview;
@@ -58,6 +63,10 @@ NAME
 zhang
 wang
 SQL> exit
+
+运行结果：
+<img src="https://github.com/2352125906yjb/oracle/blob/main/test2/3.png">
+
 测试一下同学用户之间的表的共享，只读共享和读写共享都测试一下。
 
 数据库和表空间占用分析
@@ -78,5 +87,9 @@ SQL>SELECT a.tablespace_name "表空间名",Total/1024/1024 "大小MB",
        (SELECT tablespace_name,Sum(bytes)total FROM dba_data_files
         group  BY tablespace_name)b
  where  a.tablespace_name = b.tablespace_name;
+ 
+ 运行结果：
+ <img src="https://github.com/2352125906yjb/oracle/blob/main/test2/4.png">
+ 
 autoextensible是显示表空间中的数据文件是否自动增加。
 MAX_MB是指数据文件的最大容量。
