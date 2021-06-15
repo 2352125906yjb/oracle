@@ -51,18 +51,18 @@ CREATE TABLE returntickets_record(
 )
 
 
--- ´´½¨ÆÕÍ¨ÓÃ»§idĞòÁĞ
+-- åˆ›å»ºæ™®é€šç”¨æˆ·idåºåˆ—
 create sequence seq_newUserids increment by 1 start with 1 maxvalue 999999999;
--- ´´½¨ÊÛÆ±Ô±idĞòÁĞ
+-- åˆ›å»ºå”®ç¥¨å‘˜idåºåˆ—
 create sequence seq_newAdminids increment by 1 start with 1 maxvalue 999999999;
--- ´´½¨³µÆ±idĞòÁĞ
+-- åˆ›å»ºè½¦ç¥¨idåºåˆ—
 create sequence seq_newBookids increment by 1 start with 1 maxvalue 999999999;
--- ´´½¨³µÆ±ISBNĞòÁĞ
+-- åˆ›å»ºè½¦ç¥¨ISBNåºåˆ—
 create sequence seq_newISBNs increment by 1 start with 10000000 maxvalue 999999999;
  
--- ´´½¨¹ºÆ±¼ÇÂ¼idĞòÁĞ
+-- åˆ›å»ºè´­ç¥¨è®°å½•idåºåˆ—
 create sequence seq_newBorrow_books_recordids increment by 1 start with 1 maxvalue 999999999;
--- ´´½¨ÍËÆ±¼ÇÂ¼idĞòÁĞ
+-- åˆ›å»ºé€€ç¥¨è®°å½•idåºåˆ—
 create sequence seq_newids increment by 1 start with 1 maxvalue 999999999;
 
 create or replace
@@ -73,7 +73,7 @@ begin
     for i in 1..10000
         loop
             insert into users(yonghu_id,username,passwd,uname,sex,ticket_quota,overdue_num)
-            values(seq_newUserids.nextval,'testuser','000','ÕÅ½£²¨','ÄĞ',4,0);
+            values(seq_newUserids.nextval,'testuser','000','å¼ å‰‘æ³¢','ç”·',4,0);
             flag:=flag+1;
             if flag=10001 then 
                 commit;
@@ -91,7 +91,7 @@ begin
     for i in 1..10000
         loop
             insert into admin(admina_id,username,passwd,uname,sex,ticket_quota,overdue_num)
-            values(seq_newAdminaids.nextval,'hualahuala','111','ÕÅÈı','Å®',10,0);
+            values(seq_newAdminaids.nextval,'hualahuala','111','å¼ ä¸‰','å¥³',10,0);
             flag:=flag+1;
             commit;
         end loop;
@@ -107,7 +107,7 @@ begin
     for i in 1..10000
         loop
             insert into ticket(ticket_id,isbn,ticket_name,publishing_house,surplus)
-            values(SEQ_NEWBOOKIDS.nextval,to_char(SEQ_NEWISBNS.nextval),'´¨ÓåÏß','Óà½£²¨ÊÖĞ´´òÓ¡','5');
+            values(SEQ_NEWBOOKIDS.nextval,to_char(SEQ_NEWISBNS.nextval),'å·æ¸çº¿','ä½™å‰‘æ³¢æ‰‹å†™æ‰“å°','5');
             flag:=flag+1;
             commit;
         end loop;
@@ -171,7 +171,7 @@ begin
     for i in 1..10000
         loop
             insert into return_record(id,buytickets_ticket_record_id,return_time,is_overdue)
-            values(SEQ_NEWIDS.nextval,getborrowid(),SYSDATE(),'·ñ');
+            values(SEQ_NEWIDS.nextval,getborrowid(),SYSDATE(),'å¦');
             flag:=flag+1;
             if flag=10001 then 
                 commit;
